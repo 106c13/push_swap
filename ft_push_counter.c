@@ -2,7 +2,7 @@
 
 // Use mid, run while loop and find how much is under the mid, this will fix 1 2 3 4 100000 problem
 
-static int	ft_abc(int a, int b)
+int	ft_abc(int a, int b)
 {
 	if (a < 0 && b < 0)
 		a *= -1;
@@ -99,6 +99,7 @@ int	ft_short_path(t_list **a_stack, t_list **b_stack)
 	//printf("================ A: %d B: %d==============================\n", min_a, min_b);
 	ft_n_rotate(a_stack, min_a, 0);
 	ft_n_rotate(b_stack, min_b, 1);
+	return (1);
 }
 
 void	ft_n_rotate(t_list **stack, int n, int sid)

@@ -46,4 +46,5 @@ int     ft_abc(int a, int b);
 int     ft_count_steps(int value, t_list *stack, int size);
 int     ft_short_path(t_list **a_stack, t_list **b_stack);
 void    ft_n_rotate(t_list **stack, int n, int sid);
+int     ft_get_pivot(t_list *stack, int size);
 #endif
