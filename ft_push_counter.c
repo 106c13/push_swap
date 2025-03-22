@@ -36,14 +36,12 @@ int	ft_count_steps(int value, t_list *stack, int size)
 	min = INT_MAX;
 	steps = 0;
 	head = stack;
-	min_val=777;
 	do
 	{
 		if (min > ft_abc(value, stack->value))
 		{
 			min = ft_abc(value, stack->value);
 			min_step = steps;
-			min_val = stack->value;
 			if (stack->value < value)
 				min_step++;
 		}
@@ -51,7 +49,6 @@ int	ft_count_steps(int value, t_list *stack, int size)
 		stack = stack->next;
 	}
 	while (head != stack && stack->used);
-	//printf("\n-- SIZ: %d MS: %d V: %d MV: %d S: %d\n", size, min_step, value, min_val, steps);
 	if (size - min_step > min_step)
 		return (-1 * min_step);
 	return (size - min_step);
@@ -78,7 +75,6 @@ int	ft_short_path(t_list **a_stack, t_list **b_stack)
 	br = 0;
 	do
 	{
-		//printf("=== %d\n", node->value);
 		ar = ft_count_steps(node->value, *a_stack, a_size);
 		if (ft_abp(ar, br, a_size, b_size) < min)
 		{
@@ -88,17 +84,16 @@ int	ft_short_path(t_list **a_stack, t_list **b_stack)
 			if (min == 0)
 				break ;
 		}
-		//printf("\n+++%d %d %d\n", min, ar, br);
 		br--;
 		node = node->next;
 	}
 	while (node != *b_stack && node->used);
 	if (min_b < 0 && -1 * min_b > b_size / 2)	
 		min_b = b_size + min_b;
-
-	//printf("================ A: %d B: %d==============================\n", min_a, min_b);
+	//printf("== MIN: %d MA: %d MB: %d ", min, min_a, min_b);
 	ft_n_rotate(a_stack, min_a, 0);
 	ft_n_rotate(b_stack, min_b, 1);
+	//printf("A: %d B: %d\n", (*a_stack)->value, (*b_stack)->value);
 	return (1);
 }
 

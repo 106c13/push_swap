@@ -36,3 +36,16 @@ void	ft_put_operation(char *s, int sid)
 	else
 		ft_putstr("b\n");
 }
+
+void	ft_free_list(char **list)
+{
+	char	**tmp;
+
+	tmp = list;
+	while (*tmp)
+	{
+		free(*tmp);
+		tmp++;
+	}
+	free(list);
+}

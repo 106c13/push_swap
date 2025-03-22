@@ -16,6 +16,7 @@ void	ft_putchar(char c);
 void	ft_putstr(char *str);
 void	ft_put_operation(char *s, int sid);
 int	ft_isnum(char *num);
+void	ft_free_list(char **list);
 
 // ft_list_tools.c
 t_list	*ft_create_list(char **arr, int size);
@@ -47,4 +48,7 @@ int     ft_count_steps(int value, t_list *stack, int size);
 int     ft_short_path(t_list **a_stack, t_list **b_stack);
 void    ft_n_rotate(t_list **stack, int n, int sid);
 int     ft_get_pivot(t_list *stack, int size);
+
+// ft_split.c
+char	**ft_split(char *str, char sep);
 #endif
