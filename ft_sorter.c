@@ -73,32 +73,6 @@ int	ft_push_b_smaller(t_list **a_stack, t_list **b_stack, int pivot)
 	return (moves);
 }
 
-int	ft_sort_by_len_n(t_list **f_stack, t_list **s_stack, int mid, int sid, int n)
-{
-	int	f_size;
-	int	moves;
-
-	f_size = ft_get_len(*f_stack);
-	moves = 0;
-	while (f_size > 0 && 0 < n)
-	{
-		f_size--;
-		n--;
-		if ((*f_stack)->value < mid && sid == 0)
-		{
-			ft_push(f_stack, s_stack, sid? 0 : 1);
-			moves++;
-		}
-		else if ((*f_stack)->value > mid && sid == 1)
-		{
-			ft_push(f_stack, s_stack, sid? 0 : 1);
-			moves++;
-		}
-		else
-			ft_rotate(f_stack, sid);
-	}
-	return (moves);
-}
 
 t_list	*ft_buble(t_list *a_stack, t_list *b_stack, int a_size)
 {

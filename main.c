@@ -33,7 +33,7 @@ void	ft_print_list(t_list *a_stack)
 	{
 		if (!node->used)
 			break ;
-		printf("%d %p\n", node->value, node);
+		printf("%d ", node->value);
 		node = node->next;
 	} while (node != a_stack);
 	printf("\n");

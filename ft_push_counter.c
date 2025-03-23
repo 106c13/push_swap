@@ -4,8 +4,6 @@
 
 int	ft_abc(int a, int b)
 {
-	if (a < 0 && b < 0)
-		a *= -1;
 	a = a - b;
 	if (a < 0)
 		a *= -1;
@@ -89,7 +87,9 @@ int	ft_short_path(t_list **a_stack, t_list **b_stack)
 	}
 	while (node != *b_stack && node->used);
 	if (min_b < 0 && -1 * min_b > b_size / 2)	
-		min_b = b_size + min_b;
+		min_b = b_size + min_b;	
+	//ft_print_list(*a_stack);
+	//ft_print_list(*b_stack);
 	//printf("== MIN: %d MA: %d MB: %d ", min, min_a, min_b);
 	ft_n_rotate(a_stack, min_a, 0);
 	ft_n_rotate(b_stack, min_b, 1);

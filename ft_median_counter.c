@@ -1,23 +1,33 @@
 #include "push_swap.h"
 
+int	ft_count_limit(int size)
+{
+	if (size >= 0 && size <= 200)
+		return (1);
+	if (size > 200 && size <= 1000)
+		return (2);
+	return (2);
+}
+
 int	ft_is_fine(t_list *stack, int pivot, int size)
 {
 	t_list	*node;
 	int	smaller;
+	int	limit;
 
 	smaller = 0;
+	limit = ft_count_limit(size);
 	node = stack;
 	do
 	{
-		//printf("%d %d %d\n", pivot, node->value, smaller);
 		if (node->value < pivot)
 			smaller++;
 		node = node->next;
-		if (smaller > size / 2)
+		if (smaller > size / limit)
 			return (0);
 	}
 	while (node != stack && node->used);
-	if (smaller < size / 4 || smaller == 0)
+	if (smaller < 3)
 		return (0);
 	return (1);
 }

@@ -68,7 +68,7 @@ t_list	*ft_sort_trio(t_list *stack, int sid)
 	{
 		if (a > c)
 			ft_rotate(&stack, sid);
-		if (b > c)
+		if (b > c || a < c)
 			ft_swap(stack, sid);
 	}
 	else if (b > c)
