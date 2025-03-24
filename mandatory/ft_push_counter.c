@@ -8,7 +8,7 @@ int	ft_abc(int a, int b)
 	return (a);
 }
 
-int	ft_abp(int a, int b, int a_size, int b_size)
+int	ft_abp(int a, int b, int b_size)
 {
 	if (a < 0)
 		a *= -1;
@@ -26,7 +26,6 @@ int	ft_count_steps(int value, t_list *stack, int size)
 	int	steps;
 	int	min;
 	int	min_step;
-	int	min_val;
 
 	steps = 0;
 	min = INT_MAX;
@@ -72,9 +71,9 @@ int	ft_short_path(t_list **a_stack, t_list **b_stack)
 	do
 	{
 		ar = ft_count_steps(node->value, *a_stack, a_size);
-		if (ft_abp(ar, br, a_size, b_size) < min)
+		if (ft_abp(ar, br, b_size) < min)
 		{
-			min = ft_abp(ar, br, a_size, b_size);
+			min = ft_abp(ar, br, b_size);
 			min_a = ar;
 			min_b = br;
 			if (min == 0)

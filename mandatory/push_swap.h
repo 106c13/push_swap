@@ -15,8 +15,9 @@ typedef struct s_list
 void	ft_putchar(char c);
 void	ft_putstr(char *str);
 void	ft_put_operation(char *s, int sid);
-int	ft_isnum(char *num);
 void	ft_free_list(char **list);
+int	ft_isnum(char *num);
+int	ft_strcmp(char *s1, char *s2);
 
 // ft_list_tools.c
 t_list	*ft_create_list(char **arr, int size);

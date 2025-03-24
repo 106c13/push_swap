@@ -82,9 +82,6 @@ t_list	*ft_middle(t_list *a_stack, t_list *b_stack, int a_size)
 
 	pivot = ft_get_pivot(a_stack, a_size / 2);
 	pivot1 = ft_get_pivot(a_stack, a_size);
-	printf("%d %d\n", pivot, pivot1);
-	//a_size -= ft_push_b_smaller(&a_stack, &b_stack, pivot);
-	//pivot = ft_get_pivot(a_stack, a_size);
 	while (a_size > 0)
 	{
 		if (a_stack->value > pivot1)
@@ -161,7 +158,6 @@ t_list	*ft_short(t_list *a_stack, t_list *b_stack, int a_size)
 {
 	int	i;
 	int	b_size;
-	int	moves;
 	t_list	*tmp;
 
 	b_size = 0;

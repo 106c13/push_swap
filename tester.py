@@ -27,7 +27,7 @@ err_out = ""
 m = 1111111111111111111
 for i in range(num_tests):
     random_numbers = ' '.join(str(x) for x in random.sample(range(range_start, range_end + 1), amount))
-    command = f'./a.out {random_numbers} | wc -l'
+    command = f'./push_swap {random_numbers} | wc -l'
     result = subprocess.run(command, shell=True, capture_output=True, text=True)
     output = result.stdout.strip()
     output_number = int(output)

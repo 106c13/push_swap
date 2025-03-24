@@ -1,17 +1,32 @@
 #include <stdlib.h>
 #include "push_swap.h"
 
-
-int	ft_fill_stack(t_list *stack, char **arr, int size)
+int	ft_check_doubles(char **arr, char *num, int size)
 {
 	int	i;
 
 	i = 0;
 	while (i < size)
 	{
+		if (ft_strcmp(arr[i], num) == 0)
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int	ft_fill_stack(t_list *stack, char **arr, int size)
+{
+	int	i;
+	
+	i = 0;
+	while (i < size)
+	{
 		stack[i].used = 0;
 		if (arr)
 		{
+			if (!ft_check_doubles(&arr[i + 1], arr[i], (size - i - 1)))
+				return (0);
 			if (!ft_isnum(arr[i]))
 				return(0);
 			stack[i].value = ft_atoi(arr[i]);
@@ -30,9 +45,7 @@ int	ft_fill_stack(t_list *stack, char **arr, int size)
 t_list	*ft_create_list(char **arr, int size)
 {
 	t_list	*n_stack;
-	int	i;
 
-	i = 0;
 	n_stack = malloc(sizeof(t_list) * size);
 	if (!n_stack)
 		return (NULL);
