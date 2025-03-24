@@ -73,8 +73,60 @@ int	ft_push_b_smaller(t_list **a_stack, t_list **b_stack, int pivot)
 	return (moves);
 }
 
+t_list	*ft_middle(t_list *a_stack, t_list *b_stack, int a_size)
+{
+	int	i;
+	int	pivot;
+	int	pivot1;
+	t_list	*tmp;
 
-t_list	*ft_buble(t_list *a_stack, t_list *b_stack, int a_size)
+	pivot = ft_get_pivot(a_stack, a_size / 2);
+	pivot1 = ft_get_pivot(a_stack, a_size);
+	printf("%d %d\n", pivot, pivot1);
+	//a_size -= ft_push_b_smaller(&a_stack, &b_stack, pivot);
+	//pivot = ft_get_pivot(a_stack, a_size);
+	while (a_size > 0)
+	{
+		if (a_stack->value > pivot1)
+			ft_rotate(&a_stack, 0);
+		else
+		{
+			ft_push(&a_stack, &b_stack, 1);
+			if (b_stack->value > pivot)
+				ft_rotate(&b_stack, 1);
+		}
+		a_size--;
+	}
+	a_size = ft_get_len(a_stack);
+	pivot1 = ft_get_pivot(a_stack, a_size);
+	while (a_size > 3)
+	{
+		ft_push(&a_stack, &b_stack, 1);
+		if (b_stack->value < pivot1)
+			ft_rotate(&b_stack, 1);
+		a_size--;
+	}
+	if (a_size == 3)
+		a_stack = ft_sort_trio(a_stack, 0);
+	while (b_stack->used)
+		ft_short_path(&a_stack, &b_stack);
+	i = 1;
+	tmp = a_stack;
+	a_size = ft_get_len(a_stack);
+	while (ft_is_smaller(tmp, 1))
+	{
+		i++;
+		tmp = tmp->next;
+	}
+	if (i < a_size / 2)
+		i = -1 * i;
+	else
+		i = a_size - i;
+	ft_n_rotate(&a_stack, i, 0);	
+	return (a_stack);
+}
+
+t_list	*ft_large(t_list *a_stack, t_list *b_stack, int a_size)
 {
 	int	i;
 	int	pivot;
@@ -86,49 +138,25 @@ t_list	*ft_buble(t_list *a_stack, t_list *b_stack, int a_size)
 		a_size -= ft_push_b_smaller(&a_stack, &b_stack, pivot);
 	}
 	a_stack = ft_sort_trio(a_stack, 0);
-	a_size = ft_get_len(a_stack);
 	while (b_stack->used)
-	{
 		ft_short_path(&a_stack, &b_stack);
-		ft_push(&b_stack, &a_stack, 0);
-		a_size++;
-	}
-	
 	i = 1;
 	tmp = a_stack;
+	a_size = ft_get_len(a_stack);
 	while (ft_is_smaller(tmp, 1))
 	{
 		i++;
 		tmp = tmp->next;
 	}
-	if (tmp->next == a_stack)
-		return (a_stack);
-	if (i > a_size / 2)
-	{
-		i = a_size - i;
-		while (i > 0)
-		{
-			ft_rev_rotate(&a_stack, 0);
-			i--;
-		}
-	}
+	if (i < a_size / 2)
+		i = -1 * i;
 	else
-	{
-		while (i > 0)
-		{
-			ft_rotate(&a_stack, 0);
-			i--;
-		}
-	}
+		i = a_size - i;
+	ft_n_rotate(&a_stack, i, 0);	
 	return (a_stack);
 }
 
-t_list	*ft_short(t_list *a_stack, t_list *b_stack, int a_size)
-{
-	return (a_stack);
-}
 
-/*
 t_list	*ft_short(t_list *a_stack, t_list *b_stack, int a_size)
 {
 	int	i;
@@ -136,15 +164,9 @@ t_list	*ft_short(t_list *a_stack, t_list *b_stack, int a_size)
 	int	moves;
 	t_list	*tmp;
 
-	i = ft_find_biggest(a_stack);
 	b_size = 0;
-	while (a_stack->next->used && a_size > 3)
+	while (a_size > 3)
 	{
-		if (a_stack->value == i)
-		{
-			ft_rotate(&a_stack, 0);
-			continue ;
-		}
 		if (ft_is_bigger(a_stack, 1))
 		{
 			if (ft_is_bigger(a_stack, 2))
@@ -166,34 +188,19 @@ t_list	*ft_short(t_list *a_stack, t_list *b_stack, int a_size)
 	if (a_size == 3)
 		a_stack = ft_sort_trio(a_stack, 0);
 	while (b_stack->used)
+		ft_short_path(&a_stack, &b_stack);
+	i = 1;
+	tmp = a_stack;
+	a_size = ft_get_len(a_stack);
+	while (ft_is_smaller(tmp, 1))
 	{
-		if (ft_is_smaller(b_stack, 1))
-		{	
-			if (ft_is_bigger(b_stack, 2))
-				ft_swap(b_stack, 1);
-			else
-				ft_rotate(&b_stack, 1);
-		}
-		moves = ft_count_moves(b_stack->value, a_stack);
-		if (moves < 0)
-		{
-			while (moves < 0)
-			{
-				ft_rotate(&a_stack, 0);
-				moves++;
-			}
-		}
-		else
-		{	
-			while (moves > 0)
-			{
-				ft_rev_rotate(&a_stack, 0);
-				moves--;
-			}
-		}
-		ft_push(&b_stack, &a_stack, 0);
-		a_size++;
-		b_size--;
+		i++;
+		tmp = tmp->next;
 	}
+	if (i < a_size / 2)
+		i = -1 * i;
+	else
+		i = a_size - i;
+	ft_n_rotate(&a_stack, i, 0);	
 	return (a_stack);
-}*/
+}

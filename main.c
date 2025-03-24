@@ -39,6 +39,16 @@ void	ft_print_list(t_list *a_stack)
 	printf("\n");
 }
 
+void	ft_sort(t_list *a_stack, t_list *b_stack, int size)
+{
+	if (size < 20)
+		ft_short(a_stack, b_stack, size);
+	else if (size >= 20 && size < 200)
+		ft_middle(a_stack, b_stack, size);
+	else
+		ft_large(a_stack, b_stack, size);
+}
+
 int	main(int argc, char **argv)
 {
 	t_list	*a_stack;
@@ -64,10 +74,7 @@ int	main(int argc, char **argv)
 		b_stack = ft_create_list(NULL, argc - 1);
 		if (!b_stack)
 			return (ft_exit(1, a_stack));
-		if (argc > 20)
-			ft_buble(a_stack, b_stack, argc - 1);
-		else
-			ft_short(a_stack, b_stack, argc - 1);
+		ft_sort(a_stack, b_stack, argc - 1);
 		if (allocated)
 			ft_free_list(argv);
 		free(a_stack);

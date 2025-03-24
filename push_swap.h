@@ -33,8 +33,9 @@ int	ft_atoi(char *str);
 void	ft_swap(t_list *node, int nid);
 
 // ft_sorter.c
-t_list	*ft_buble(t_list *a_stack, t_list *b_stack, int size); 
+t_list	*ft_large(t_list *a_stack, t_list *b_stack, int size); 
 t_list  *ft_short(t_list *a_stack, t_list *b_stack, int a_size);
+t_list	*ft_middle(t_list *a_stack, t_list *b_stack, int a_size);
 int	ft_is_smaller(t_list *node, int i);
 int	ft_is_bigger(t_list *node, int i);
 int	ft_get_len(t_list *stack);

@@ -1,7 +1,5 @@
 #include "push_swap.h"
 
-// Use mid, run while loop and find how much is under the mid, this will fix 1 2 3 4 100000 problem
-
 int	ft_abc(int a, int b)
 {
 	a = a - b;
@@ -88,12 +86,9 @@ int	ft_short_path(t_list **a_stack, t_list **b_stack)
 	while (node != *b_stack && node->used);
 	if (min_b < 0 && -1 * min_b > b_size / 2)	
 		min_b = b_size + min_b;	
-	//ft_print_list(*a_stack);
-	//ft_print_list(*b_stack);
-	//printf("== MIN: %d MA: %d MB: %d ", min, min_a, min_b);
 	ft_n_rotate(a_stack, min_a, 0);
 	ft_n_rotate(b_stack, min_b, 1);
-	//printf("A: %d B: %d\n", (*a_stack)->value, (*b_stack)->value);
+	ft_push(b_stack, a_stack, 0);
 	return (1);
 }
 
