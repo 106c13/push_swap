@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_commands.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: haaghaja <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/21 17:08:01 by haaghaja          #+#    #+#             */
+/*   Updated: 2025/03/25 18:07:41 by haaghaja         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	ft_swap(t_list *node, int sid)
@@ -33,7 +45,7 @@ void	ft_rotate(t_list **stack, int sid)
 
 	prev_head = *stack;
 	if (!(*stack)->next->used)
-		return ;	
+		return ;
 	*stack = (*stack)->next;
 	prev_head->used = 0;
 	node = *stack;

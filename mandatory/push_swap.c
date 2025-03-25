@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: haaghaja <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/21 17:08:01 by haaghaja          #+#    #+#             */
+/*   Updated: 2025/03/25 18:38:55 by haaghaja         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	ft_exit(int errId, void *ptr)
@@ -22,20 +34,19 @@ int	ft_list_size(char **list)
 	return (size);
 }
 
-
 void	ft_print_list(t_list *a_stack)
 {
-	t_list *node;
-
+	t_list	*node;
 
 	node = a_stack;
 	do
 	{
-		if (!node->used)
-			break ;
-		printf("%d ", node->value);
-		node = node->next;
-	} while (node != a_stack);
+	if (!node->used)
+		break ;
+	printf("%d ", node->value);
+	node = node->next;
+	}
+	while (node != a_stack);
 	printf("\n");
 }
 

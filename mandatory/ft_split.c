@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: haaghaja <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/21 17:08:01 by haaghaja          #+#    #+#             */
+/*   Updated: 2025/03/25 18:32:00 by haaghaja         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	count_strings(char *str, char sep)
@@ -16,8 +28,8 @@ int	count_strings(char *str, char sep)
 
 char	*get_string(char *s, int start, int end)
 {
-	int	i;
 	char	*str;
+	int		i;
 
 	i = 0;
 	str = malloc((end - start + 1) * sizeof(char));
@@ -34,9 +46,9 @@ char	*get_string(char *s, int start, int end)
 
 int	ft_fill_list(char *str, char sep, char **list)
 {
-	int		start;
-	int		i;
-	int		count;
+	int	start;
+	int	i;
+	int	count;
 
 	i = 0;
 	start = 0;
@@ -52,7 +64,7 @@ int	ft_fill_list(char *str, char sep, char **list)
 				list[count] = get_string(str, start, i + 1);
 				if (list[count] == NULL || !ft_isnum(list[count]))
 					return (0);
-				count++;	
+				count++;
 			}
 		}
 		i++;
@@ -60,11 +72,10 @@ int	ft_fill_list(char *str, char sep, char **list)
 	return (1);
 }
 
-
 char	**ft_split(char *str, char sep)
 {
 	char	**list;
-	int	count;
+	int		count;
 
 	count = count_strings(str, sep);
 	list = malloc((count + 1) * sizeof(char *));
@@ -73,7 +84,7 @@ char	**ft_split(char *str, char sep)
 	if (!ft_fill_list(str, sep, list))
 	{
 		ft_free_list(list);
-		return (NULL);	
+		return (NULL);
 	}
 	list[count] = 0;
 	return (list);
