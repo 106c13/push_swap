@@ -25,6 +25,7 @@ mid = 0
 inc = 0
 err_out = ""
 m = 1111111111111111111
+mx = 0
 for i in range(num_tests):
     random_numbers = ' '.join(str(x) for x in random.sample(range(range_start, range_end + 1), amount))
     command = f'./push_swap {random_numbers} | wc -l'
@@ -38,11 +39,13 @@ for i in range(num_tests):
         inc += 1
     if m > output_number:
         m = output_number
+    if mx < output_number:
+        mx = output_number
     print(f"\r{i+1} out of {num_tests}", end='')
 
 print("")
 mid = mid / num_tests
 print(err_out)
-print(f"Avg: {mid}\nMin: {m}")
+print(f"Avg: {mid}\nMin: {m}\nMax: {mx}")
 print(f">{limit}: {inc}")
 

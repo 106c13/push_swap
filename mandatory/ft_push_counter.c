@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-int	ft_abc(int a, int b)
+long	ft_abc(long a, long b)
 {
 	a = a - b;
 	if (a < 0)
@@ -8,7 +8,7 @@ int	ft_abc(int a, int b)
 	return (a);
 }
 
-int	ft_abp(int a, int b, int b_size)
+long	ft_abp(long a, long b, long b_size)
 {
 	if (a < 0)
 		a *= -1;
@@ -23,12 +23,11 @@ int	ft_abp(int a, int b, int b_size)
 int	ft_count_steps(int value, t_list *stack, int size)
 {
 	t_list	*head;
+	long	min;
 	int	steps;
-	int	min;
 	int	min_step;
-
 	steps = 0;
-	min = INT_MAX;
+	min = LONG_MAX;
 	steps = 0;
 	head = stack;
 	do
@@ -52,18 +51,18 @@ int	ft_count_steps(int value, t_list *stack, int size)
 
 int	ft_short_path(t_list **a_stack, t_list **b_stack)
 {
+	t_list	*node;
+	long	min;
 	int	min_a;
 	int	min_b;
 	int	ar;
 	int	br;
-	int	min;
 	int	a_size;
 	int	b_size;
-	t_list	*node;
 	
 	min_a = INT_MAX;
 	min_b = INT_MAX;
-	min = INT_MAX;
+	min = LONG_MAX;
 	node = *b_stack;
 	a_size = ft_get_len(*a_stack);
 	b_size = ft_get_len(*b_stack);
@@ -84,7 +83,7 @@ int	ft_short_path(t_list **a_stack, t_list **b_stack)
 	}
 	while (node != *b_stack && node->used);
 	if (min_b < 0 && -1 * min_b > b_size / 2)	
-		min_b = b_size + min_b;	
+		min_b = b_size + min_b;
 	ft_n_rotate(a_stack, min_a, 0);
 	ft_n_rotate(b_stack, min_b, 1);
 	ft_push(b_stack, a_stack, 0);

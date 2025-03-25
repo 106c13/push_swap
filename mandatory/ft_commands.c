@@ -73,6 +73,6 @@ void	ft_rev_rotate(t_list **stack, int sid)
 		(*stack)->used = 0;
 		*stack = empty_node;
 		(*stack)->used = 1;
-	}		
+	}
 	ft_put_operation("rr", sid);
 }

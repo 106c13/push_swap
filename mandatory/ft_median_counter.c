@@ -14,7 +14,7 @@ int	ft_count_limit_min(int size)
 	if (size > 0 && size <= 200)
 		return (2);
 	if (size > 200)
-		return (10);
+		return (8);
 	return (1);
 }
 

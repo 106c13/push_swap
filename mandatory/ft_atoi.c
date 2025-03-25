@@ -11,9 +11,9 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-int	ft_atoi(char *str)
+long	ft_atoi(char *str)
 {
-	int	result;
+	long	result;
 	int	sign;
 
 	result = 0;

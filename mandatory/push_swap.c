@@ -17,7 +17,7 @@ int	ft_exit(int errId, void *ptr)
 	if (ptr)
 		free(ptr);
 	if (errId == 1)
-		ft_putstr("Error\n");
+		write(2, "Error\n", 6);
 	return (0);
 }
 
@@ -90,7 +90,7 @@ int	main(int argc, char **argv)
 		argv = ft_split(argv[1], ' ');
 		if (!argv)
 		{
-			ft_putstr("Error\n");
+			write(2, "Error\n", 6);
 			return (0);
 		}
 		argc = ft_list_size(argv) + 1;
@@ -101,7 +101,7 @@ int	main(int argc, char **argv)
 	if (argc > 1)
 	{
 		if (!ft_push_swap(argc - 1, argv))
-			ft_putstr("Error\n");
+			write(2, "Error\n", 6);
 		if (allocated)
 			ft_free_list(argv);
 	}

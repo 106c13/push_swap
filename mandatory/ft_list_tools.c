@@ -29,6 +29,7 @@ int	ft_check_doubles(char **arr, char *num, int size)
 int	ft_fill_stack(t_list *stack, char **arr, int size)
 {
 	int	i;
+	long	num;
 
 	i = 0;
 	while (i < size)
@@ -40,7 +41,10 @@ int	ft_fill_stack(t_list *stack, char **arr, int size)
 				return (0);
 			if (!ft_isnum(arr[i]))
 				return (0);
-			stack[i].value = ft_atoi(arr[i]);
+			num = ft_atoi(arr[i]);
+			if (num > INT_MAX || num < INT_MIN)
+				return (0);
+			stack[i].value = (int)num;
 			stack[i].used = 1;
 		}
 		if (i != 0)
