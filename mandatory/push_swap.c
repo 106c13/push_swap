@@ -78,7 +78,10 @@ int	main(int argc, char **argv)
 	{
 		argv = ft_split(argv[1], ' ');
 		if (!argv)
-			return (ft_exit(1, NULL));
+		{
+			ft_putstr("Error\n");
+			return (0);
+		}
 		argc = ft_list_size(argv) + 1;
 		allocated = 1;
 	}

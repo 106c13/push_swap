@@ -27,20 +27,19 @@ char	*exit_gnl(char *str, char *buffer);
 
 // ft_utils.c
 void	ft_putstr(char *str);
-void	ft_put_operation(char *s, int sid);
 void	ft_free_list(char **list);
 int	ft_isnum(char *num);
+int	ft_strcmp(char *s1, char *s2);
 
 // ft_list_tools.c
 t_list	*ft_create_list(char **arr, int size);
-t_list	*ft_find_tail(t_list *n_stack);
-t_list  *ft_sort_trio(t_list *stack, int sid);
+t_list  *ft_find_tail(t_list *stack);
 
 // ft_commands.c
-void	ft_swap(t_list *node, int sid);
-void	ft_push(t_list **f_stack, t_list **s_stack, int sid);
-void	ft_rotate(t_list **stack, int sid);
-void	ft_rev_rotate(t_list **stack, int sid);
+void	ft_swap(t_list *node);
+void	ft_push(t_list **f_stack, t_list **s_stack);
+void	ft_rotate(t_list **stack);
+void	ft_rev_rotate(t_list **stack);
 
 // ft_atoi.c
 int	ft_atoi(char *str);

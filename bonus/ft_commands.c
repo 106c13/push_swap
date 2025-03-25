@@ -1,6 +1,6 @@
 #include "checker.h"
 
-void	ft_swap(t_list *node, int sid)
+void	ft_swap(t_list *node)
 {
 	int	tmp;
 
@@ -9,11 +9,10 @@ void	ft_swap(t_list *node, int sid)
 	tmp = node->value;
 	node->value = node->next->value;
 	node->next->value = tmp;
-	ft_put_operation("s", sid);
 }
 
 // top of the F -> top of the S
-void	ft_push(t_list **f_stack, t_list **s_stack, int sid)
+void	ft_push(t_list **f_stack, t_list **s_stack)
 {
 	t_list	*s_tail;
 
@@ -23,10 +22,9 @@ void	ft_push(t_list **f_stack, t_list **s_stack, int sid)
 	(*s_stack)->used = 1;
 	(*f_stack)->used = 0;
 	*f_stack = (*f_stack)->next;
-	ft_put_operation("p", sid);
 }
 
-void	ft_rotate(t_list **stack, int sid)
+void	ft_rotate(t_list **stack)
 {
 	t_list	*prev_head;
 	t_list	*node;
@@ -41,10 +39,9 @@ void	ft_rotate(t_list **stack, int sid)
 		node = node->next;
 	node->used = 1;
 	node->value = prev_head->value;
-	ft_put_operation("r", sid);
 }
 
-void	ft_rev_rotate(t_list **stack, int sid)
+void	ft_rev_rotate(t_list **stack)
 {
 	t_list	*prev_head;
 	t_list	*empty_node;
@@ -62,5 +59,4 @@ void	ft_rev_rotate(t_list **stack, int sid)
 		*stack = empty_node;
 		(*stack)->used = 1;
 	}		
-	ft_put_operation("rr", sid);
 }
