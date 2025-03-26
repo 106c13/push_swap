@@ -5,6 +5,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <limits.h>
+
 typedef struct s_list
 {
 	int		value;
@@ -14,9 +15,13 @@ typedef struct s_list
 
 // ft_utils.c
 void	ft_put_operation(char *s, int sid);
-void	ft_free_list(char **list);
 int	ft_isnum(char *num);
 int	ft_strcmp(char *s1, char *s2);
+
+// ft_list_utils.c
+void	ft_free_list(char **list);
+int	ft_list_size(char **list);
+int	ft_get_len(t_list *stack);
 
 // ft_list_tools.c
 t_list	*ft_create_list(char **arr, int size);
@@ -36,7 +41,6 @@ long	ft_atoi(char *str);
 t_list	*ft_large(t_list *a_stack, t_list *b_stack, int size); 
 t_list  *ft_short(t_list *a_stack, t_list *b_stack, int a_size);
 t_list	*ft_middle(t_list *a_stack, t_list *b_stack, int a_size);
-int	ft_get_len(t_list *stack);
 
 // main.c
 void	ft_print_list(t_list *a_stack);

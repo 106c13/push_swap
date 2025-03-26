@@ -28,30 +28,27 @@ int	ft_check_doubles(char **arr, char *num, int size)
 
 int	ft_fill_stack(t_list *stack, char **arr, int size)
 {
-	int	i;
 	long	num;
 
-	i = 0;
-	while (i < size)
+	stack[size - 1].next = &stack[0];
+	while (size > 0)
 	{
-		stack[i].used = 0;
+		size--;
+		stack[size].used = 0;
 		if (arr)
 		{
-			if (!ft_check_doubles(&arr[i + 1], arr[i], (size - i - 1)))
+			if (!ft_check_doubles(arr, arr[size], (size)))
 				return (0);
-			if (!ft_isnum(arr[i]))
+			if (!ft_isnum(arr[size]))
 				return (0);
-			num = ft_atoi(arr[i]);
+			num = ft_atoi(arr[size]);
 			if (num > INT_MAX || num < INT_MIN)
 				return (0);
-			stack[i].value = (int)num;
-			stack[i].used = 1;
+			stack[size].value = (int)num;
+			stack[size].used = 1;
 		}
-		if (i != 0)
-			stack[i - 1].next = &stack[i];
-		i++;
-		if (i == size)
-			stack[i - 1].next = &stack[0];
+		if (size != 0)
+			stack[size - 1].next = &stack[size];
 	}
 	return (1);
 }

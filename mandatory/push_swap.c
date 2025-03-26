@@ -12,43 +12,7 @@
 
 #include "push_swap.h"
 
-int	ft_exit(int errId, void *ptr)
-{
-	if (ptr)
-		free(ptr);
-	if (errId == 1)
-		write(2, "Error\n", 6);
-	return (0);
-}
 
-int	ft_list_size(char **list)
-{
-	int	size;
-
-	size = 0;
-	while (*list)
-	{
-		list++;
-		size++;
-	}
-	return (size);
-}
-
-void	ft_print_list(t_list *a_stack)
-{
-	t_list	*node;
-
-	node = a_stack;
-	do
-	{
-	if (!node->used)
-		break ;
-	printf("%d ", node->value);
-	node = node->next;
-	}
-	while (node != a_stack);
-	printf("\n");
-}
 
 void	ft_sort(t_list *a_stack, t_list *b_stack, int size)
 {

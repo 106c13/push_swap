@@ -34,21 +34,6 @@ int	ft_is_bigger(t_list *node, int i)
 	return (0);
 }
 
-int	ft_get_len(t_list *stack)
-{
-	t_list	*tmp;
-	int	size;
-
-	size = 0;
-	tmp = stack;
-	do
-	{
-		size++;
-		tmp = tmp->next;
-	} while (tmp != stack && tmp->used);
-	return (size);
-}
-
 int	ft_push_b_smaller(t_list **a_stack, t_list **b_stack, int pivot)
 {
 	int	a_size;

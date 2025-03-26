@@ -1,13 +1,5 @@
 #include "push_swap.h"
 
-int	ft_count_limit_max(int size)
-{
-	if (size >= 0 && size <= 200)
-		return (2);
-	if (size > 200 && size <= 1000)
-		return (2);
-	return (2);
-}
 
 int	ft_count_limit_min(int size)
 {
@@ -25,14 +17,13 @@ int	ft_is_fine(t_list *stack, int pivot, int size)
 	int	limit;
 
 	smaller = 0;
-	limit = ft_count_limit_max(size);
 	node = stack;
 	do
 	{
 		if (node->value < pivot)
 			smaller++;
 		node = node->next;
-		if (smaller > size / limit)
+		if (smaller > size / 2)
 			return (0);
 	}
 	while (node != stack && node->used);
