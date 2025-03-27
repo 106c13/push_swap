@@ -26,11 +26,11 @@ int	ft_get_line(char **str, char *buffer)
 	*str = new_str(*str, size);
 	if (!(*str))
 		return (1);
-	flag = ft_gstrjoin(*str, buffer);
+	flag = ft_strjoin(*str, buffer);
 	return (flag);
 }
 
-int	ft_gstrjoin(char *str1, char *str2)
+int	ft_strjoin(char *str1, char *str2)
 {
 	int	flag;
 
@@ -73,7 +73,7 @@ char	*new_str(char *str, ssize_t bytes_read)
 		return (exit_gnl(temp, NULL));
 	str[0] = 0;
 	if (temp)
-		ft_gstrjoin(str, temp);
+		ft_strjoin(str, temp);
 	free(temp);
 	return (str);
 }

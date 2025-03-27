@@ -117,6 +117,7 @@ int	ft_check(t_list *a_stack, t_list *b_stack)
 	{
 		if (!ft_run_command(move, &a_stack, &b_stack))
 			return (0);
+		free(move);
 		move = get_next_line(0);
 	}
 	if (ft_is_sorted(a_stack) && !b_stack->used)
@@ -131,6 +132,8 @@ int	ft_checker(int argc, char **argv)
 	t_list	*a_stack;
 	t_list	*b_stack;
 
+	if (!argv)
+		return (0);
 	a_stack = ft_create_list(argv, argc);
 	if (!a_stack)
 		return (0);
@@ -147,30 +150,26 @@ int	ft_checker(int argc, char **argv)
 	return (1);
 }
 
-int	main(int argc, char **argv)
+int     main(int argc, char **argv)
 {
-	int	allocated;
+        int     allocated;
 
-	allocated = 0;
+        if (argc == 1)
+                return (0);
+        allocated = 0;
+        argv = &argv[1];
 	if (argc == 2)
 	{
-		argv = ft_split(argv[1], ' ');
-		if (!argv)
+		argv = ft_split(*argv, ' ');
+		if (argv)
 		{
-			ft_putstr("Error\n");
-			return (0);
+			argc = ft_list_size(argv) + 1;
+			allocated = 1;
 		}
-		argc = ft_list_size(argv) + 1;
-		allocated = 1;
 	}
-	else
-		argv = &argv[1];
-	if (argc > 1)
-	{
-		if (!ft_checker(argc - 1, argv))
-			ft_putstr("Error\n");
-		if (allocated)
-			ft_free_list(argv);
-	}
+	if (!ft_checker(argc - 1, argv))
+		ft_putstr("Error\n");
+	if (allocated)
+		ft_free_list(argv);
 	return (0);	
 }

@@ -29,6 +29,8 @@ int	ft_push_swap(int argc, char **argv)
 	t_list	*a_stack;
 	t_list	*b_stack;
 
+	if (!argv)
+		return (0);
 	a_stack = ft_create_list(argv, argc);
 	if (!a_stack)
 		return (0);
@@ -48,26 +50,22 @@ int	main(int argc, char **argv)
 {
 	int	allocated;
 
+	if (argc == 1)
+		return (0);
 	allocated = 0;
+	argv = &argv[1];
 	if (argc == 2)
 	{
-		argv = ft_split(argv[1], ' ');
-		if (!argv)
+		argv = ft_split(*argv, ' ');
+		if (argv)
 		{
-			write(2, "Error\n", 6);
-			return (0);
-		}
-		argc = ft_list_size(argv) + 1;
-		allocated = 1;
+			argc = ft_list_size(argv) + 1;
+			allocated = 1;
+		}	
 	}
-	else
-		argv = &argv[1];
-	if (argc > 1)
-	{
-		if (!ft_push_swap(argc - 1, argv))
-			write(2, "Error\n", 6);
-		if (allocated)
-			ft_free_list(argv);
-	}
+	if (!ft_push_swap(argc - 1, argv))
+		write(2, "Error\n", 6);
+	if (allocated)
+		ft_free_list(argv);
 	return (0);
 }

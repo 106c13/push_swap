@@ -19,7 +19,7 @@ int	count_strings(char *str, char sep)
 	count = 0;
 	while (*str)
 	{
-		if (*str != sep && (*(str + 1) == ' ' || *(str + 1) == '\0'))
+		if (*str != sep && (*(str + 1) == sep || *(str + 1) == '\0'))
 			count++;
 		str++;
 	}

@@ -6,7 +6,7 @@ SRC = mandatory/ft_commands.c mandatory/ft_push_counter.c mandatory/ft_utils.c \
 	mandatory/ft_atoi.c mandatory/ft_median_counter.c mandatory/ft_split.c \
 	mandatory/ft_list_utils.c
 
-SRC_BONUS = bonus/checker.c  bonus/ft_atoi.c  bonus/ft_commands.c  bonus/ft_list_tools.ic \
+SRC_BONUS = bonus/checker.c  bonus/ft_atoi.c  bonus/ft_commands.c  bonus/ft_list_tools.c \
 		bonus/ft_split.c  bonus/ft_utils.c  bonus/get_next_line.c  bonus/get_next_line_utils.c
 
 OBJ = $(SRC:.c=.o)

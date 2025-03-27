@@ -3,6 +3,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
@@ -21,7 +22,7 @@ char	*get_next_line(int fd);
 // get_next_line_utils.c
 void	shift_buffer(char *buffer);	
 int	ft_get_line(char **str, char *buffer);
-int	ft_gstrjoin(char *str1, char *str2);
+int	ft_strjoin(char *str1, char *str2);
 char	*new_str(char *str, ssize_t bytes_read);
 char	*exit_gnl(char *str, char *buffer);
 
@@ -42,7 +43,7 @@ void	ft_rotate(t_list **stack);
 void	ft_rev_rotate(t_list **stack);
 
 // ft_atoi.c
-int	ft_atoi(char *str);
+long	ft_atoi(char *str);
 
 // ft_split.c
 char    **ft_split(char *str, char sep);
