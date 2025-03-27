@@ -22,6 +22,8 @@ int	ft_strcmp(char *s1, char *s2);
 void	ft_free_list(char **list);
 int	ft_list_size(char **list);
 int	ft_get_len(t_list *stack);
+long	ft_abc(long a, long b);
+long	ft_abp(long a, long b);
 
 // ft_list_tools.c
 t_list	*ft_create_list(char **arr, int size);
@@ -43,8 +45,10 @@ t_list  *ft_short(t_list *a_stack, t_list *b_stack, int a_size);
 t_list	*ft_middle(t_list *a_stack, t_list *b_stack, int a_size);
 
 // ft_push_counter.c
-int     ft_short_path(t_list **a_stack, t_list **b_stack);
+int	ft_move_to_closest(t_list **a_stack, t_list **b_stack);
 void    ft_n_rotate(t_list **stack, int n, int sid);
+
+// ft_median_counter.c
 int     ft_get_pivot(t_list *stack, int size);
 
 // ft_split.c

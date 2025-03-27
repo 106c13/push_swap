@@ -91,7 +91,7 @@ t_list	*ft_middle(t_list *a_stack, t_list *b_stack, int a_size)
 	if (a_size == 3)
 		a_stack = ft_sort_trio(a_stack, 0);
 	while (b_stack->used)
-		ft_short_path(&a_stack, &b_stack);
+		ft_move_to_closest(&a_stack, &b_stack);
 	i = 1;
 	tmp = a_stack;
 	a_size = ft_get_len(a_stack);
@@ -121,7 +121,7 @@ t_list	*ft_large(t_list *a_stack, t_list *b_stack, int a_size)
 	}
 	a_stack = ft_sort_trio(a_stack, 0);
 	while (b_stack->used)
-		ft_short_path(&a_stack, &b_stack);
+		ft_move_to_closest(&a_stack, &b_stack);
 	i = 1;
 	tmp = a_stack;
 	a_size = ft_get_len(a_stack);
@@ -169,7 +169,7 @@ t_list	*ft_short(t_list *a_stack, t_list *b_stack, int a_size)
 	if (a_size == 3)
 		a_stack = ft_sort_trio(a_stack, 0);
 	while (b_stack->used)
-		ft_short_path(&a_stack, &b_stack);
+		ft_move_to_closest(&a_stack, &b_stack);
 	i = 1;
 	tmp = a_stack;
 	a_size = ft_get_len(a_stack);

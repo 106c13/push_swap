@@ -14,21 +14,20 @@ int	ft_is_fine(t_list *stack, int pivot, int size)
 {
 	t_list	*node;
 	int	smaller;
-	int	limit;
 
 	smaller = 0;
 	node = stack;
-	do
+	while (node->used)
 	{
 		if (node->value < pivot)
 			smaller++;
 		node = node->next;
 		if (smaller > size / 2)
 			return (0);
+		if (node == stack)
+			break ;
 	}
-	while (node != stack && node->used);
-	limit = ft_count_limit_min(size);
-	if (smaller < size / limit)
+	if (smaller < size / ft_count_limit_min(size))
 		return (0);
 	return (1);
 }

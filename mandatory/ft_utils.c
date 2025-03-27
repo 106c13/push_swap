@@ -42,21 +42,15 @@ int	ft_isnum(char *num)
 	return (1);
 }
 
-void	ft_putstr(char *str)
-{
-	while (*str)
-	{
-		write(1, str, 1);
-		str++;
-	}
-}
-
 void	ft_put_operation(char *s, int sid)
 {
-	ft_putstr(s);
+	while (*s)
+	{
+		write(1, s, 1);
+		s++;
+	}
 	if (sid == 0)
-		ft_putstr("a\n");
+		write(1, "a\n", 2);
 	else
-		ft_putstr("b\n");
+		write(1, "b\n", 2);
 }
-
