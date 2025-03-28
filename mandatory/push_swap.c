@@ -12,8 +12,6 @@
 
 #include "push_swap.h"
 
-
-
 void	ft_sort(t_list *a_stack, t_list *b_stack, int size)
 {
 	if (size < 20)
@@ -61,7 +59,7 @@ int	main(int argc, char **argv)
 		{
 			argc = ft_list_size(argv) + 1;
 			allocated = 1;
-		}	
+		}
 	}
 	if (!ft_push_swap(argc - 1, argv))
 		write(2, "Error\n", 6);

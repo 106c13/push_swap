@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_list_utils.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: haaghaja <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/21 17:08:01 by haaghaja          #+#    #+#             */
+/*   Updated: 2025/03/25 18:38:55 by haaghaja         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	ft_free_list(char **list)
@@ -29,15 +41,17 @@ int	ft_list_size(char **list)
 int	ft_get_len(t_list *stack)
 {
 	t_list	*tmp;
-	int	size;
+	int		size;
 
 	size = 0;
 	tmp = stack;
-	do
+	while (tmp->used)
 	{
 		size++;
 		tmp = tmp->next;
-	} while (tmp != stack && tmp->used);
+		if (tmp == stack)
+			break ;
+	}
 	return (size);
 }
 

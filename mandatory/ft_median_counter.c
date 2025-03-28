@@ -1,5 +1,16 @@
-#include "push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_median_counter.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: haaghaja <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/21 17:08:01 by haaghaja          #+#    #+#             */
+/*   Updated: 2025/03/25 18:41:29 by haaghaja         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "push_swap.h"
 
 int	ft_count_limit_min(int size)
 {
@@ -13,7 +24,7 @@ int	ft_count_limit_min(int size)
 int	ft_is_fine(t_list *stack, int pivot, int size)
 {
 	t_list	*node;
-	int	smaller;
+	int		smaller;
 
 	smaller = 0;
 	node = stack;
@@ -34,8 +45,8 @@ int	ft_is_fine(t_list *stack, int pivot, int size)
 
 int	ft_get_pivot(t_list *stack, int size)
 {
-	int	pivot;
-	int	biggest;
+	int		pivot;
+	int		biggest;
 	t_list	*head;
 
 	head = stack;
