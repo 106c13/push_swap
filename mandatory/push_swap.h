@@ -50,6 +50,7 @@ void	ft_rev_rotate(t_list **stack, int sid);
 
 // ft_helpers.c
 void	ft_fix_stack(t_list **stacki);
+void	ft_move_b(t_list **a_stack, t_list **b_stack, int a_size);
 int		ft_move_smaller(t_list **a_stack, t_list **b_stack, int pivoti);
 int		ft_is_bigger(t_list *node, int i);
 int		ft_is_smaller(t_list *node, int i);

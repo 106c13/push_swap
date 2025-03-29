@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_helpers.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: haaghaja <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/21 17:08:01 by haaghaja          #+#    #+#             */
+/*   Updated: 2025/01/26 13:03:50 by haaghaja         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	ft_is_smaller(t_list *node, int i)
@@ -77,4 +89,25 @@ void	ft_fix_stack(t_list **stack)
 	else
 		i = size - i;
 	ft_n_rotate(stack, i, 0);
+}
+
+void	ft_move_b(t_list **a_stack, t_list **b_stack, int a_size)
+{
+	int		pivot;
+	int		pivot1;
+
+	pivot = ft_get_pivot(*a_stack, (a_size * 28) / 100);
+	pivot1 = ft_get_pivot(*a_stack, a_size);
+	while (a_size > 0)
+	{
+		if ((*a_stack)->value > pivot1)
+			ft_rotate(a_stack, 0);
+		else
+		{
+			ft_push(a_stack, b_stack, 1);
+			if ((*b_stack)->value < pivot)
+				ft_rotate(b_stack, 1);
+		}
+		a_size--;
+	}
 }

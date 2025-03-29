@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_push_counter.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: haaghaja <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/21 17:08:01 by haaghaja          #+#    #+#             */
+/*   Updated: 2025/01/26 13:03:50 by haaghaja         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	ft_count_steps(int value, t_list *node, int size)
@@ -25,7 +37,7 @@ int	ft_count_steps(int value, t_list *node, int size)
 	return (size - min_step);
 }
 
-void	ft_count_closest(t_list *a_stack, t_list *b_stack, int *min_a, int *min_b)
+void	ft_c_c(t_list *a_stack, t_list *b_stack, int *min_a, int *min_b)
 {
 	t_list	*node;
 	int		ar;
@@ -61,7 +73,7 @@ int	ft_move_to_closest(t_list **a_stack, t_list **b_stack)
 
 	min_a = INT_MAX;
 	min_b = INT_MAX;
-	ft_count_closest(*a_stack, *b_stack, &min_a, &min_b);
+	ft_c_c(*a_stack, *b_stack, &min_a, &min_b);
 	ft_n_rotate(a_stack, min_a, 0);
 	ft_n_rotate(b_stack, min_b, 1);
 	ft_push(b_stack, a_stack, 0);
