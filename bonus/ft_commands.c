@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_commands.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: haaghaja <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/30 14:27:45 by haaghaja          #+#    #+#             */
+/*   Updated: 2025/03/30 14:37:15 by haaghaja         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "checker.h"
 
 void	ft_swap(t_list *node)
@@ -31,7 +43,7 @@ void	ft_rotate(t_list **stack)
 
 	prev_head = *stack;
 	if (!(*stack)->next->used)
-		return ;	
+		return ;
 	*stack = (*stack)->next;
 	prev_head->used = 0;
 	node = *stack;

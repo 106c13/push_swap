@@ -37,6 +37,13 @@ for i in range(num_tests):
         err_out += command + '\n'
         err_out += f'\033[91m{output_number}\033[0m\n'
         inc += 1
+    '''else:
+        command = f'./push_swap {random_numbers} | ./checker {random_numbers}'
+        result = subprocess.run(command, shell=True, capture_output=True, text=True)
+        output = result.stdout.strip()
+        if (output != 'OK'):
+            err_out += command + '\n'
+            err_out += f'\033[91m{output}\033[0m\n'''
     if m > output_number:
         m = output_number
     if mx < output_number:

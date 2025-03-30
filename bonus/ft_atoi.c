@@ -6,7 +6,7 @@
 /*   By: haaghaja <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 17:08:01 by haaghaja          #+#    #+#             */
-/*   Updated: 2025/01/26 13:03:50 by haaghaja         ###   ########.fr       */
+/*   Updated: 2025/03/30 14:36:58 by haaghaja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "checker.h"
@@ -14,7 +14,7 @@
 long	ft_atoi(char *str)
 {
 	long	result;
-	int	sign;
+	int		sign;
 
 	result = 0;
 	sign = 1;

@@ -1,110 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: haaghaja <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/30 14:28:54 by haaghaja          #+#    #+#             */
+/*   Updated: 2025/03/30 14:48:37 by haaghaja         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "checker.h"
-#include <stdio.h>
-
-int     ft_list_size(char **list)
-{
-        int     size;
-
-        size = 0;
-        while (*list)
-        {
-                list++;
-                size++;
-        }
-        return (size);
-}
-
-int     ft_is_smaller(t_list *node, int i)
-{
-        int     value;
-
-        value = node->value;
-        while (i > 0)
-        {
-                i--;
-                node = node->next;
-                if (!node->used)
-                        return (0);
-        }
-        if (value < node->value)
-                return (1);
-        return (0);
-}
 
 int	ft_run_command(char *move, t_list **a_stack, t_list **b_stack)
 {
-	if (ft_strcmp(move, "sa\n") == 0)
-	{
-		if ((*a_stack)->next->used)
-			ft_swap(*a_stack);
-		else
-			return (0);
-	}
-	else if (ft_strcmp(move, "sb\n") == 0)
-	{
-		if ((*b_stack)->next->used)
-			ft_swap(*b_stack);
-		else
-			return (0);
-	}
-	else if (ft_strcmp(move, "pa\n") == 0)
-	{
-		if ((*b_stack)->used)
-			ft_push(b_stack, a_stack);
-		else
-			return (0);
-	}
-	else if (ft_strcmp(move, "pb\n") == 0)
-	{
-		if ((*a_stack)->used)
-			ft_push(a_stack, b_stack);
-		else
-			return (0);
-	}
-	else if (ft_strcmp(move, "ra\n") == 0)
-	{
-		if ((*a_stack)->used)
-			ft_rotate(a_stack);
-		else
-			return (0);
-	}
-	else if (ft_strcmp(move, "rb\n") == 0)
-	{
-		if ((*b_stack)->used)
-			ft_rotate(b_stack);
-		else
-			return (0);
-	}
-	else if (ft_strcmp(move, "rra\n") == 0)
-	{
-		if ((*a_stack)->used)
-			ft_rev_rotate(a_stack);
-		else
-			return (0);
-	}
-	else if (ft_strcmp(move, "rrb\n") == 0)
-	{
-		if ((*b_stack)->used)
-			ft_rev_rotate(b_stack);
-		else
-			return (0);
-	}
+	if (ft_strcmp(move, "sa\n") == 0 && (*a_stack)->next->used)
+		ft_swap(*a_stack);
+	else if (ft_strcmp(move, "sb\n") == 0 && (*b_stack)->next->used)
+		ft_swap(*b_stack);
+	else if (ft_strcmp(move, "pa\n") == 0 && (*b_stack)->used)
+		ft_push(b_stack, a_stack);
+	else if (ft_strcmp(move, "pb\n") == 0 && (*a_stack)->used)
+		ft_push(a_stack, b_stack);
+	else if (ft_strcmp(move, "ra\n") == 0 && (*a_stack)->used)
+		ft_rotate(a_stack);
+	else if (ft_strcmp(move, "rb\n") == 0 && (*b_stack)->used)
+		ft_rotate(b_stack);
+	else if (ft_strcmp(move, "rra\n") == 0 && (*a_stack)->used)
+		ft_rev_rotate(a_stack);
+	else if (ft_strcmp(move, "rrb\n") == 0 && (*b_stack)->used)
+		ft_rev_rotate(b_stack);
 	else
 		return (0);
-	return (1);
-}
-
-int	ft_is_sorted(t_list *stack)
-{
-	t_list	*node;
-
-	node = stack;
-	while (node->next != stack)
-	{
-		if (!ft_is_smaller(node, 1))
-			return (0);
-		node = node->next;
-	}
 	return (1);
 }
 
@@ -150,14 +77,14 @@ int	ft_checker(int argc, char **argv)
 	return (1);
 }
 
-int     main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-        int     allocated;
+	int	allocated;
 
-        if (argc == 1)
-                return (0);
-        allocated = 0;
-        argv = &argv[1];
+	if (argc == 1)
+		return (0);
+	allocated = 0;
+	argv = &argv[1];
 	if (argc == 2)
 	{
 		argv = ft_split(*argv, ' ');
@@ -171,5 +98,5 @@ int     main(int argc, char **argv)
 		ft_putstr("Error\n");
 	if (allocated)
 		ft_free_list(argv);
-	return (0);	
+	return (0);
 }
