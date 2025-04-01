@@ -12,6 +12,20 @@
 
 #include "push_swap.h"
 
+int	ft_is_sorted(t_list *stack)
+{
+	t_list	*node;
+
+	node = stack;
+	while (node->next != stack)
+	{
+		if (!ft_is_smaller(node, 1))
+			return (0);
+		node = node->next;
+	}
+	return (1);
+}
+
 void	ft_sort(t_list *a_stack, t_list *b_stack, int size)
 {
 	if (size < 20)
@@ -38,7 +52,8 @@ int	ft_push_swap(int argc, char **argv)
 		free(a_stack);
 		return (0);
 	}
-	ft_sort(a_stack, b_stack, argc);
+	if (!ft_is_sorted(a_stack))
+		ft_sort(a_stack, b_stack, argc);
 	free(a_stack);
 	free(b_stack);
 	return (1);

@@ -37,9 +37,9 @@ int	ft_fill_stack(t_list *stack, char **arr, int size)
 		stack[size].used = 0;
 		if (arr)
 		{
-			if (!ft_check_doubles(arr, arr[size], (size)))
-				return (0);
 			if (!ft_isnum(arr[size]))
+				return (0);
+			if (!ft_check_doubles(arr, arr[size], (size)))
 				return (0);
 			num = ft_atoi(arr[size]);
 			if (num > INT_MAX || num < INT_MIN)

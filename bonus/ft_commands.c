@@ -70,5 +70,5 @@ void	ft_rev_rotate(t_list **stack)
 		(*stack)->used = 0;
 		*stack = empty_node;
 		(*stack)->used = 1;
-	}		
+	}
 }

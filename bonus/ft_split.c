@@ -78,6 +78,8 @@ char	**ft_split(char *str, char sep)
 	int		count;
 
 	count = count_strings(str, sep);
+	if (count == 0)
+		return (NULL);
 	list = malloc((count + 1) * sizeof(char *));
 	if (list == NULL)
 		return (NULL);

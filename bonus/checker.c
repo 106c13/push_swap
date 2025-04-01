@@ -43,7 +43,10 @@ int	ft_check(t_list *a_stack, t_list *b_stack)
 	while (move)
 	{
 		if (!ft_run_command(move, &a_stack, &b_stack))
+		{
+			free(move);
 			return (0);
+		}
 		free(move);
 		move = get_next_line(0);
 	}
