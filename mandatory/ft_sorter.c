@@ -76,3 +76,17 @@ t_list	*ft_short(t_list *a_stack, t_list *b_stack, int a_size)
 	ft_fix_stack(&a_stack);
 	return (a_stack);
 }
+
+void	ft_rrotate(t_list **a_stack, t_list **b_stack)
+{
+	ft_rotate(a_stack, 2);
+	ft_rotate(b_stack, 2);
+	write(1, "rr\n", 3);
+}
+
+void	ft_rrrotate(t_list **a_stack, t_list **b_stack)
+{
+	ft_rev_rotate(a_stack, 2);
+	ft_rev_rotate(b_stack, 2);
+	write(1, "rrr\n", 4);
+}

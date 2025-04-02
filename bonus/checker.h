@@ -1,6 +1,6 @@
 /* ************************************************************************** */
-/*																			*/
-/*														:::	  ::::::::   */
+/*										*/
+/*						:::	  ::::::::   */
 /*   checker.h                                          :+:      :+:    :+:   */
 /*													+:+ +:+		 +:+	 */
 /*   By: haaghaja <marvin@42.fr>					+#+  +:+	   +#+		*/
@@ -45,6 +45,8 @@ int		ft_isnum(char *num);
 int		ft_strcmp(char *s1, char *s2);
 
 // ft_helpers.c
+void	ft_rrotate(t_list **a_stack, t_list **b_stack);
+void	ft_rrrotate(t_list **a_stack, t_list **b_stack);
 int		ft_list_size(char **list);
 int		ft_is_smaller(t_list *node, int i);
 int		ft_is_sorted(t_list *stack);
@@ -58,6 +60,7 @@ void	ft_swap(t_list *node);
 void	ft_push(t_list **f_stack, t_list **s_stack);
 void	ft_rotate(t_list **stack);
 void	ft_rev_rotate(t_list **stack);
+void	ft_ss(t_list *a_stack, t_list *b_stack);
 
 // ft_atoi.c
 long	ft_atoi(char *str);

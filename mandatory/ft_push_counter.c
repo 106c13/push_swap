@@ -74,6 +74,18 @@ int	ft_move_to_closest(t_list **a_stack, t_list **b_stack)
 	min_a = INT_MAX;
 	min_b = INT_MAX;
 	ft_c_c(*a_stack, *b_stack, &min_a, &min_b);
+	while (min_a < 0 && min_b < 0)
+	{
+		ft_rrotate(a_stack, b_stack);
+		min_a++;
+		min_b++;
+	}
+	while (min_a > 0 && min_b > 0)
+	{
+		ft_rrrotate(a_stack, b_stack);
+		min_a--;
+		min_b--;
+	}
 	ft_n_rotate(a_stack, min_a, 0);
 	ft_n_rotate(b_stack, min_b, 1);
 	ft_push(b_stack, a_stack, 0);

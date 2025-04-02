@@ -62,6 +62,8 @@ long	ft_atoi(char *str);
 t_list	*ft_large(t_list *a_stack, t_list *b_stack, int size);
 t_list	*ft_short(t_list *a_stack, t_list *b_stack, int a_size);
 t_list	*ft_middle(t_list *a_stack, t_list *b_stack, int a_size);
+void	ft_rrotate(t_list **a_stack, t_list **b_stack);
+void	ft_rrrotate(t_list **a_stack, t_list **b_stack);
 
 // ft_push_counter.c
 void	ft_n_rotate(t_list **stack, int n, int sid);

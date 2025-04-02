@@ -18,12 +18,19 @@ void	ft_swap(t_list *node)
 
 	if (node->next == node)
 		return ;
+	if (!node->next->used)
+		return ;
 	tmp = node->value;
 	node->value = node->next->value;
 	node->next->value = tmp;
 }
 
-// top of the F -> top of the S
+void	ft_ss(t_list *a_stack, t_list *b_stack)
+{
+	ft_swap(a_stack);
+	ft_swap(b_stack);
+}
+
 void	ft_push(t_list **f_stack, t_list **s_stack)
 {
 	t_list	*s_tail;
@@ -42,7 +49,7 @@ void	ft_rotate(t_list **stack)
 	t_list	*node;
 
 	prev_head = *stack;
-	if (!(*stack)->next->used)
+	if (!(*stack)->used && !(*stack)->next->used)
 		return ;
 	*stack = (*stack)->next;
 	prev_head->used = 0;
@@ -59,6 +66,8 @@ void	ft_rev_rotate(t_list **stack)
 	t_list	*empty_node;
 
 	prev_head = *stack;
+	if (!(*stack)->used)
+		return ;
 	while ((*stack)->next->used && prev_head != (*stack)->next)
 		*stack = (*stack)->next;
 	empty_node = *stack;

@@ -44,6 +44,8 @@ int	ft_isnum(char *num)
 
 void	ft_put_operation(char *s, int sid)
 {
+	if (sid == 2)
+		return ;
 	while (*s)
 	{
 		write(1, s, 1);

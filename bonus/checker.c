@@ -14,22 +14,28 @@
 
 int	ft_run_command(char *move, t_list **a_stack, t_list **b_stack)
 {
-	if (ft_strcmp(move, "sa\n") == 0 && (*a_stack)->next->used)
+	if (ft_strcmp(move, "sa\n") == 0)
 		ft_swap(*a_stack);
-	else if (ft_strcmp(move, "sb\n") == 0 && (*b_stack)->next->used)
+	else if (ft_strcmp(move, "sb\n") == 0)
 		ft_swap(*b_stack);
+	else if (ft_strcmp(move, "ss\n") == 0)
+		ft_ss(*a_stack, *b_stack);
 	else if (ft_strcmp(move, "pa\n") == 0 && (*b_stack)->used)
 		ft_push(b_stack, a_stack);
 	else if (ft_strcmp(move, "pb\n") == 0 && (*a_stack)->used)
 		ft_push(a_stack, b_stack);
-	else if (ft_strcmp(move, "ra\n") == 0 && (*a_stack)->used)
+	else if (ft_strcmp(move, "ra\n") == 0)
 		ft_rotate(a_stack);
-	else if (ft_strcmp(move, "rb\n") == 0 && (*b_stack)->used)
+	else if (ft_strcmp(move, "rb\n") == 0)
 		ft_rotate(b_stack);
-	else if (ft_strcmp(move, "rra\n") == 0 && (*a_stack)->used)
+	else if (ft_strcmp(move, "rr\n") == 0)
+		ft_rrotate(a_stack, b_stack);
+	else if (ft_strcmp(move, "rra\n") == 0)
 		ft_rev_rotate(a_stack);
-	else if (ft_strcmp(move, "rrb\n") == 0 && (*b_stack)->used)
+	else if (ft_strcmp(move, "rrb\n") == 0)
 		ft_rev_rotate(b_stack);
+	else if (ft_strcmp(move, "rrr\n") == 0)
+		ft_rrrotate(a_stack, b_stack);
 	else
 		return (0);
 	return (1);

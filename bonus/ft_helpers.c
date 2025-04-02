@@ -55,3 +55,15 @@ int	ft_is_sorted(t_list *stack)
 	}
 	return (1);
 }
+
+void	ft_rrotate(t_list **a_stack, t_list **b_stack)
+{
+	ft_rotate(a_stack);
+	ft_rotate(b_stack);
+}
+
+void	ft_rrrotate(t_list **a_stack, t_list **b_stack)
+{
+	ft_rev_rotate(a_stack);
+	ft_rev_rotate(b_stack);
+}
